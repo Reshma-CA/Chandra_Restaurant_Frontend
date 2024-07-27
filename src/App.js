@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+
+import CateBasedPost from "./components/CategoryList/CateBasedPost";
+import Details from "./components/Details/Details";
+
+import Main from "./components/Main/Main";
+import Navbar from "./components/Navbar/Navbar";
+import {BrowserRouter as Router ,Routes,Route} from 'react-router-dom';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Navbar/>
+    <Router>
+      <Routes>
+        
+        <Route path="/" element={ <Main/>}/>
+        <Route path="/details/:id" element={ <Details/>}/>
+        <Route path="/category/:id" element={<CateBasedPost/>}/>
+       
+
+        
+      </Routes>
+    </Router>
+    
+     
+    </>
   );
 }
 
